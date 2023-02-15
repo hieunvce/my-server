@@ -1,0 +1,7 @@
+backend.farmvion.com {
+  reverse_proxy pocketbase:8080
+}
+
+farmvion.com {
+  respond "Hello, world"
+}

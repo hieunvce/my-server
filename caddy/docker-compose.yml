@@ -2,6 +2,7 @@ version: '3'
 
 services:
   caddy:
+    container_name: caddy
     image: caddy:2.6.3
     restart: unless-stopped
     ports:
@@ -12,7 +13,15 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - services-network
+
 
 volumes:
   caddy_data:
   caddy_config:
+
+networks:
+  services-network:
+    name: services-network
+    external: true
